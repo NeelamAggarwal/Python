@@ -7,17 +7,24 @@ YAGNI ... Ya Ain't Gonna Need It
 """
 
 from collections import namedtuple
+import math
 
 Version = namedtuple('Version', 'major minor')
 
 
-class Circle:
+class Circle(object):
     "An advanced circle analytics toolkit"
 
-    version = Version(0, 1)
+    version = Version(0, 4)
 
     def __init__(self, radius):
         self.radius = radius
 
+    def __repr__(self):
+        return '%s(%r)' % (self.__class__.__name__, self.radius)
+
     def area(self):
-        return 3.14159 * self.radius ** 2
+        return math.pi * self.radius ** 2
+
+    def perimeter(self):
+        return math.pi * self.radius * 2
